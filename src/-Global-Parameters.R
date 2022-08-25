@@ -3,7 +3,7 @@
 #run this to set your dropbox path in your .Renviron
 #usethis::edit_r_environ('project')
 #example for .Renviron below
-#DATA_PATH = "E:/Dropbox/CODE EXAMPLES/R/example-project-data"
+#DATA_PATH = "C:/Users/Levi/Desktop/GitHub"
 # Notice the slashes go the other way from Windows! 
 
 #load the data path from the project environment

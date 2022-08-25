@@ -4,9 +4,9 @@
 library(dbplyr)
 library(RPostgres)
 library(DBI)
-library(glue)
-library(arrow)
-library(haven)
+library(glue) #allows for multiple users to have different paths
+library(arrow) #read and write parquet files
+library(haven) #read and write SAS & STATA data
 library(tictoc) #very optional, mostly as a teaching example
 library(tidyverse) # I like to load tidyverse last to avoid package conflicts
 
@@ -109,7 +109,7 @@ tictoc::toc()
 # saving to Stata is convenient for working with coauthors
 # glue package allows for dynamic file paths 
 # then each coauthor can specify their own local data folder
-write_dta(raw_funda,glue("{data_path}/example-data1.dta")) 
+write_dta(raw_funda,glue("{DATA_PATH}/example-data2.dta")) 
 #looks like about 162 MB on my machine
 
 # if the data will stay in R or another advanced/modern language like Python
@@ -120,9 +120,5 @@ write_dta(raw_funda,glue("{data_path}/example-data1.dta"))
 # default to a high level of gzip compression to save space
 # therefore, the write_parquet function is using the function defined in the 
 # utils script
-write_parquet(raw_funda,glue("{data_path}/example-data1.parquet"))
+write_parquet(raw_funda,glue("{DATA_PATH}/example-data1.parquet"))
 # the parquet operations are faster and the file is only 32MB on my machine
-
-
-
-
